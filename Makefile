@@ -5,5 +5,9 @@ HTML_NOTEBOOKS = \
 
 all: $(HTML_NOTEBOOKS)
 
+clean:
+	rm -f $(HTML_NOTEBOOKS)
+
 %.html: %.ipynb
+	jupyter nbconvert --to notebook --execute --inplace $<
 	jupyter-nbconvert $< --to html
